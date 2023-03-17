@@ -61,8 +61,11 @@ impl Sub for BigNum {
 impl BigNum {
     ///Gives 4 digits of precision in the result!
     pub fn pow(self, exponent:f64) -> Self{
+        //Some of the +1's may be wrong, but hey, erstes Spiel.
         let significant_digits = 4;
-        let shifted_magnitude = (DECIMAL_DIGITS-significant_digits-1) as u128;
+        let loggi = self.coeff.ilog10()+1;
+        let shifted_magnitude = (loggi.saturating_sub(significant_digits+1)) as u128;
+        if self.coeff.leading_zeros()>110 {let shifted_magnitude=0u128;}
 
         let old_coeff_float = (self.coeff/10u128.pow(shifted_magnitude as u32)) as f64;
         let new_coeff = old_coeff_float.powf(exponent) as u128;
