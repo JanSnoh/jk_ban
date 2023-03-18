@@ -3,7 +3,7 @@ use num::One;
 
 use super::{BigNum, DECIMAL_DIGITS};
 
-use std::ops::{Add, Mul, Sub, Div};
+use std::ops::{Add, Mul, Sub, Div, AddAssign};
 
 
 impl Mul for BigNum {
@@ -87,5 +87,11 @@ impl PartialOrd for BigNum{
             ord => return ord,
         }
         self.coeff.partial_cmp(&other.coeff)
+    }
+}
+
+impl AddAssign for BigNum{
+    fn add_assign(&mut self, rhs: Self) {
+        *self = *self + rhs;
     }
 }

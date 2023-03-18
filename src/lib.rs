@@ -1,8 +1,11 @@
 //!
-//! Introducing BAN: Big     Number. Brought to you by Kajus & Jan
+//! Introducing BAN: ``Big     Number``. Brought to you by Kajus & Jan
+//! 
 //! To suit all your Idle Game needs ( or whatever else you need these ridiculously large numbers for)
+//! 
 //! A BigNum can get VERY large. I would write down just how large, but python crashed trying to calculate it.
-//! The Maximum BigNum is approximately: (1**16)*10**(2**(128))
+//! 
+//! The Maximum BigNum is approximately: ``(1**16)*10**(2**(128))``
 //! 
 
 mod big_num; 
@@ -75,6 +78,17 @@ mod tests {
         let expected= BigNum::new(3125, 250);
 
         assert_eq!(lhs.pow(exponent), expected);
+    }
+
+    #[test]
+    fn add_assign(){
+        let mut lhs= BigNum::new(5, 0);
+        let rhs= BigNum::new(20, 0);
+        let expected= BigNum::new(25, 0);
+
+        lhs+=rhs;
+
+        assert_eq!(lhs, expected);
     }
 
 }
