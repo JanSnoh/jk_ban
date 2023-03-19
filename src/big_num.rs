@@ -2,7 +2,6 @@
 #![allow(unused_variables)]
 use std::fmt::{Display, write};
 
-pub use num::{One, Zero};
 
 mod ops;
 
@@ -41,21 +40,19 @@ impl BigNum{
 
 }
 
-impl Zero for BigNum{
-    fn zero() -> Self {
+impl BigNum{
+    pub fn zero() -> Self {
         BigNum { coeff: 0, exp: 0 }
     }
 
-    fn is_zero(&self) -> bool {
+    pub fn is_zero(&self) -> bool {
         self.coeff==0 && self.exp==0
     }
-}
-
-impl One for BigNum{
-    fn one() -> Self {
+    pub fn one() -> Self {
         BigNum { coeff: 1, exp: 0 }
     }
 }
+
 
 impl Display for BigNum{
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

@@ -1,5 +1,4 @@
 
-use num::One;
 
 use super::{BigNum, DECIMAL_DIGITS};
 

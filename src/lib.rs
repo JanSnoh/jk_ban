@@ -5,7 +5,7 @@
 //! 
 //! A BigNum can get VERY large. I would write down just how large, but python crashed trying to calculate it.
 //! 
-//! The Maximum BigNum is approximately: ``(1**16)*10**(2**(128))``
+//! The Maximum BigNum is approximately: ``(10**16)*10**(2**(128))``
 //! 
 
 mod big_num; 
@@ -14,7 +14,6 @@ pub use big_num::BigNum;
 
 #[cfg(test)]
 mod tests {
-    use num::One;
 
     use super::*;
 
