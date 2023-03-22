@@ -61,6 +61,7 @@ impl BigNum {
     ///Gives 4 digits of precision in the result!
     pub fn pow(self, exponent:f64) -> Self{
         //Some of the +1's may be wrong, but hey, erstes Spiel.
+        if self.is_zero() {return Self::zero()}
         let significant_digits = 4;
         let loggi = self.coeff.ilog10()+1;
         let shifted_magnitude = (loggi.saturating_sub(significant_digits+1)) as u128;

@@ -90,4 +90,13 @@ mod tests {
         assert_eq!(lhs, expected);
     }
 
+    #[test]
+    fn pow_base_zero(){
+        let lhs = BigNum::zero();
+        let exp = 2f64;
+        let expected= BigNum::zero();
+
+        assert_eq!(lhs.pow(exp), expected);
+    }
+
 }
